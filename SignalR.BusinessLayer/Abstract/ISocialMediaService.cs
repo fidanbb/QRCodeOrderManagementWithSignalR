@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.DataAccessLayer.Abstract
+namespace SignalR.BusinessLayer.Abstract
 {
-    public interface IFeautureDal:IGenericDal<Feature>
+    public interface ISocialMediaService:IGenericService<SocialMedia>
     {
     }
 }
