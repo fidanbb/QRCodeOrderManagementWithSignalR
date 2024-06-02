@@ -38,6 +38,11 @@ namespace SignalR.BusinessLayer.Concrete
             return await _productDal.GetByID(id);
         }
 
+        public async Task<List<Product>> TGetProductsWithCategoriesAsync()
+        {
+            return await _productDal.GetProductsWithCategoriesAsync();
+        }
+
         public async Task TUpdate(Product entity)
         {
            await _productDal.Update(entity);

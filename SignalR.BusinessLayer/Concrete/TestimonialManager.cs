@@ -9,38 +9,38 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    public class TestimonialManager : IProductService
+    public class TestimonialManager : ITestimonialService
     {
-        private readonly IProductDal _productDal;
+        private readonly ITestimonialDal _testimonialDal;
 
-        public TestimonialManager(IProductDal productDal)
+        public TestimonialManager(ITestimonialDal testimonialDal)
         {
-            _productDal = productDal;
+            _testimonialDal = testimonialDal;
         }
 
-        public async Task TAdd(Product entity)
+        public async Task TAdd(Testimonial entity)
         {
-           await _productDal.Add(entity);
+           await _testimonialDal.Add(entity);
         }
 
-        public async Task TDelete(Product entity)
+        public async Task TDelete(Testimonial entity)
         {
-          await _productDal.Delete(entity);
+          await _testimonialDal.Delete(entity);
         }
 
-        public async Task<List<Product>> TGetAll()
+        public async Task<List<Testimonial>> TGetAll()
         {
-            return await _productDal.GetAll();
+            return await _testimonialDal.GetAll();
         }
 
-        public async Task<Product> TGetByID(int id)
+        public async Task<Testimonial> TGetByID(int id)
         {
-          return  await _productDal.GetByID(id);
+          return  await _testimonialDal.GetByID(id);
         }
 
-        public async Task TUpdate(Product entity)
+        public async Task TUpdate(Testimonial entity)
         {
-           await _productDal.Update(entity);
+           await _testimonialDal.Update(entity);
         }
     }
 }
