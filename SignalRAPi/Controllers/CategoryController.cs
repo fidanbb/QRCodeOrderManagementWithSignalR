@@ -41,9 +41,9 @@ namespace SignalRAPi.Controllers
             return Ok("Category Added Successfully");
         }
 
-        [HttpDelete]
+		[HttpDelete("{id}")]
 
-        public async Task<IActionResult>DeleteCategory(int id)
+		public async Task<IActionResult>DeleteCategory(int id)
         {
             var value = await _categoryService.TGetByID(id);
 
@@ -52,7 +52,7 @@ namespace SignalRAPi.Controllers
             return Ok("Category Deleted Successfully");
         }
 
-        [HttpGet("GetCategory")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
             var value = _mapper.Map<ResultCategoryDto>(await _categoryService.TGetByID(id));
@@ -74,5 +74,7 @@ namespace SignalRAPi.Controllers
 
             return Ok("Category updated Successfully");
         }
+
+
     }
 }
