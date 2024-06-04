@@ -1,0 +1,59 @@
+﻿@model List<ResultSocialMediaDto>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Social Media Operations</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Social Media List</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							You can perform social media-related operations below:
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Title</th>
+									<th scope="col">Url</th>
+									<th scope="col">Delete</th>
+									<th scope="col">Update</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.SocialMediaID</td>
+										<td>@item.Title</td>
+										<td>@item.Url</td>
+										<td>
+											<a asp-controller="SocialMedia" asp-action="DeleteSocialMedia" asp-route-id="@item.SocialMediaID" class="btn btn-outline-danger btn-rounded"
+											   onclick="return confirm('Are you sure you want to social media this category?')">Delete</a>
+										</td>
+										<td><a asp-controller="SocialMedia" asp-action="UpdateSocialMedia" asp-route-id="@item.SocialMediaID" class="btn btn-outline-success btn-rounded">Update</a></td>
+									</tr>
+								}
+
+
+							</tbody>
+						</table>
+						<a asp-controller="SocialMedia" asp-action="CreateSocialMedia" class="btn btn-outline-primary">Add New SocialMedia</a>
+
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
