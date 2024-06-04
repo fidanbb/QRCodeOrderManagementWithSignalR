@@ -1,46 +1,46 @@
-﻿@model CreateContactDto
+﻿@model CreateDiscountDto
 @{
-    ViewData["Title"] = "CreateContact";
+    ViewData["Title"] = "CreateDiscount";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="content">
     <div class="container-fluid">
-        <h4 class="page-title">Home Page Footer Contact Opeartions</h4>
+        <h4 class="page-title">Discount Opeartions</h4>
         <div class="row">
             <div class="col-md-12">
                 <form method="post">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Adding New Contact</div>
+                            <div class="card-title">Adding New Discount</div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="location">Enter Location</label>
-                                <input type="text" class="form-control" asp-for="Location" id="location">
+                                <label for="Title">Enter Discount title</label>
+                                <input type="text" class="form-control" asp-for="Title" id="Title">
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="phone">Enter Phone</label>
-                                <input type="text" class="form-control" asp-for="Phone" id="phone">
+                                <label for="Rate">Enter Discount Amount</label>
+                                <input type="text" class="form-control" asp-for="Amount" id="Rate">
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="mail">Enter Mail</label>
-                                <input type="email" class="form-control" asp-for="Mail" id="mail">
+                                <label for="ImageUrl">Enter Discount ImageUrl</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="ImageUrl">
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="desciption">Enter Description</label>
-                                <textarea rows="5" class="form-control" asp-for="FooterDescription" id="description"></textarea>
+                                <label for="Description">Enter Discount Description</label>
+                                <input type="text" class="form-control" asp-for="Description" id="Description">
                             </div>
                         </div>
                         <div class="card-action">
-                            <button class="btn btn-primary">Add Contact</button>
-                            <a asp-controller="Contact" asp-action="Index" class="btn btn-danger">Cancel</a>
+                            <button class="btn btn-primary">Add Discount</button>
+                            <a asp-controller="Discount" asp-action="Index" class="btn btn-danger">Cancel</a>
                         </div>
                     </div>
                 </form>
