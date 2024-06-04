@@ -1,0 +1,66 @@
+﻿@model List<ResultFeatureDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Home Page Feature Operations</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Feature List</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							You can perform Feature-related operations below: 
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Title1</th>
+									<th scope="col">Title2</th>
+									<th scope="col">Title3</th>
+									<th scope="col">Description1</th>
+									<th scope="col">Description2</th>
+									<th scope="col">Description3</th>
+									<th scope="col">Delete</th>
+									<th scope="col">Update</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.FeatureID</td>
+										<td>@item.Title1</td>
+										<td>@item.Title2</td>
+										<td>@item.Title3</td>
+										<td>@item.Description1</td>
+										<td>@item.Description2</td>
+										<td>@item.Description3</td>
+										<td>
+											<a asp-controller="Feature" asp-action="DeleteFeature" asp-route-id="@item.FeatureID" class="btn btn-outline-danger btn-rounded"
+											   onclick="return confirm('Are you sure you want to delete this feature?')">Delete</a>
+										</td>
+										<td><a asp-controller="Feature" asp-action="UpdateFeature" asp-route-id="@item.FeatureID" class="btn btn-outline-success btn-rounded">Update</a></td>
+									</tr>
+								}
+
+
+							</tbody>
+						</table>
+						<a asp-controller="Feature" asp-action="CreateFeature" class="btn btn-outline-primary">Add New Feature</a>
+
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
