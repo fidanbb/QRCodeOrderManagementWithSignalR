@@ -48,6 +48,7 @@ namespace SignalRAPi.Controllers
                 ProductStatus= createProductDto.ProductStatus,
                 Description= createProductDto.Description,
                 ImageUrl= createProductDto.ImageUrl,
+                CategoryId=createProductDto.CategoryID
 
             });
             return Ok("Product added Successfully");
@@ -82,6 +83,7 @@ namespace SignalRAPi.Controllers
                 ProductStatus = updatepPoductDto.ProductStatus,
                 Description = updatepPoductDto.Description,
                 ImageUrl = updatepPoductDto.ImageUrl,
+                CategoryId=updatepPoductDto.CategoryID
             });
             return Ok("Product updated Successfully");
         }
