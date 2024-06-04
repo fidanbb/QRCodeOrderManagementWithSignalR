@@ -41,7 +41,7 @@ namespace SignalRAPi.Controllers
             return Ok("About Added Succesfully ");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> DeleteAbout(int id)
         {
@@ -69,7 +69,7 @@ namespace SignalRAPi.Controllers
             return Ok("About Updated Succesfully ");
         }
 
-        [HttpGet("GetAbout")]
+        [HttpGet("{id}")]
 
         public async Task<IActionResult>GetAbout(int id)
         {

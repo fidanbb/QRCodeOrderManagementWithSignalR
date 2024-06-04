@@ -32,18 +32,18 @@ namespace SignalRAPi.Controllers
         {
             Booking booking = new Booking()
             {
-               Mail=request.Mail,
-               Date=request.Date,
-               Name =request.Name,
-               PersonCount  =request.PersonCount,
-               Phone =request.Phone,
+                Mail = request.Mail,
+                Date = request.Date,
+                Name = request.Name,
+                PersonCount = request.PersonCount,
+                Phone = request.Phone,
             };
 
             await _bookingService.TAdd(booking);
             return Ok("Booking Added Succesfully ");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> DeleteBooking(int id)
         {
@@ -73,7 +73,7 @@ namespace SignalRAPi.Controllers
             return Ok("Booking Updated Succesfully ");
         }
 
-        [HttpGet("GetBooking")]
+        [HttpGet("{id}")]
 
         public async Task<IActionResult> GetBooking(int id)
         {

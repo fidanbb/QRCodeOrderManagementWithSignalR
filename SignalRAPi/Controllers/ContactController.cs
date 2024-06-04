@@ -45,7 +45,7 @@ namespace SignalRAPi.Controllers
             return Ok("Contact Added Successfully");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> DeleteContact(int id)
         {
@@ -56,7 +56,7 @@ namespace SignalRAPi.Controllers
             return Ok("Contact Deleted Successfully");
         }
 
-        [HttpGet("GetContact")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetContact(int id)
         {
             var value = _mapper.Map<ResultContactDto>(await _contactService.TGetByID(id));

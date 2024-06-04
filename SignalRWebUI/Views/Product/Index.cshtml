@@ -40,7 +40,7 @@
 										<td>@item.ProductStatus</td>
 										<td>
 											<a asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-outline-danger btn-rounded"
-											   onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+											   onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
 										</td>
 										<td><a asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@item.ProductId" class="btn btn-outline-success btn-rounded">Update</a></td>
 									</tr>
