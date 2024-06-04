@@ -1,0 +1,51 @@
+﻿@model CreateTestimonialDto
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Testimonial Opeartions</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Adding New Testimonial</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Please Enter Customer Name</label>
+                                <input type="text" class="form-control" asp-for="Name" id="Name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Title">Please Enter Customer Title</label>
+                                <input type="text" class="form-control" asp-for="Title" id="Title">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Comment">Please Enter Customer Comment</label>
+                                <input type="text" class="form-control" asp-for="Comment" id="Comment">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ImageUrl">Please Enter Customer Image Url</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="ImageUrl">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Add Testimonial</button>
+                            <a asp-controller="Testimonial" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
