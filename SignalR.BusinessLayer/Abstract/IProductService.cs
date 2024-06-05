@@ -10,5 +10,12 @@ namespace SignalR.BusinessLayer.Abstract
     public interface IProductService:IGenericService<Product>
     {
         Task<List<Product>> TGetProductsWithCategoriesAsync();
-    }
+		Task<int> TProductCountAsync();
+		Task<int> TProductCountByCategoryNameHamburgerAsync();
+		Task<int> TProductCountByCategoryNameDrinkAsync();
+		Task<decimal> TAverageProductPriceAsync();
+		Task<string> TProductNameWithHighestPriceAsync();
+		Task<string> TProductNameWithLowestPriceAsync();
+		Task<decimal> TAverageProductPriceByHamburgerAsync();
+	}
 }

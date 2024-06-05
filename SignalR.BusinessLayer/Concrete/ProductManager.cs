@@ -23,7 +23,17 @@ namespace SignalR.BusinessLayer.Concrete
            await _productDal.Add(entity);   
         }
 
-        public async Task TDelete(Product entity)
+		public async Task<decimal> TAverageProductPriceAsync()
+		{
+			return await _productDal.AverageProductPriceAsync();
+		}
+
+		public async Task<decimal> TAverageProductPriceByHamburgerAsync()
+		{
+            return await _productDal.AverageProductPriceByHamburgerAsync();
+		}
+
+		public async Task TDelete(Product entity)
         {
              await _productDal.Delete(entity);
         }
@@ -43,7 +53,32 @@ namespace SignalR.BusinessLayer.Concrete
             return await _productDal.GetProductsWithCategoriesAsync();
         }
 
-        public async Task TUpdate(Product entity)
+		public async Task<int> TProductCountAsync()
+		{
+			return await _productDal.ProductCountAsync();
+		}
+
+		public async Task<int> TProductCountByCategoryNameDrinkAsync()
+		{
+			return await _productDal.ProductCountByCategoryNameDrinkAsync();
+		}
+
+		public async Task<int> TProductCountByCategoryNameHamburgerAsync()
+		{
+			return await _productDal.ProductCountByCategoryNameHamburgerAsync();
+		}
+
+		public async Task<string> TProductNameWithHighestPriceAsync()
+		{
+			return await _productDal.ProductNameWithHighestPriceAsync();
+		}
+
+		public async Task<string> TProductNameWithLowestPriceAsync()
+		{
+            return await _productDal.ProductNameWithLowestPriceAsync();
+		}
+
+		public async Task TUpdate(Product entity)
         {
            await _productDal.Update(entity);
         }

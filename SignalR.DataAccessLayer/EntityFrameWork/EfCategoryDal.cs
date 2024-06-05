@@ -1,4 +1,5 @@
-﻿using SignalR.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using SignalR.DataAccessLayer.Abstract;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.DataAccessLayer.Repositories;
 using SignalR.EntityLayer.Entities;
@@ -15,5 +16,26 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
         public EfCategoryDal(SignalRContext context) : base(context)
         {
         }
-    }
+
+		public async Task<int> ActiveCategoryCountAsync()
+		{
+			using var context = new SignalRContext();
+
+			return await context.Categories.Where(m=>m.Status==true).CountAsync();
+		}
+
+		public async Task<int> CategoryCount()
+		{
+			using var context = new SignalRContext();
+
+			return await context.Categories.CountAsync();
+		}
+
+		public async Task<int> PassiveCategoryCountAsync()
+		{
+			using var context = new SignalRContext();
+
+			return await context.Categories.Where(m => m.Status == false).CountAsync();
+		}
+	}
 }

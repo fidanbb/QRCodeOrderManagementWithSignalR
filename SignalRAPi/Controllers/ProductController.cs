@@ -87,5 +87,59 @@ namespace SignalRAPi.Controllers
             });
             return Ok("Product updated Successfully");
         }
-    }
+
+        [HttpGet("ProductCount")]
+
+        public async Task<IActionResult> ProductCount()
+        {
+            return Ok(await _productService.TProductCountAsync());
+        }
+
+
+		[HttpGet("ProductCountByHamburger")]
+
+		public async Task<IActionResult> ProductCountByHamburger()
+		{
+			return Ok(await _productService.TProductCountByCategoryNameHamburgerAsync());
+		}
+
+
+		[HttpGet("ProductCountByDrink")]
+
+		public async Task<IActionResult> ProductCountByDrink()
+		{
+			return Ok(await _productService.TProductCountByCategoryNameDrinkAsync());
+		}
+
+		[HttpGet("AverageProductPrice")]
+
+		public async Task<IActionResult> AverageProductPrice()
+		{
+			return Ok(await _productService.TAverageProductPriceAsync());
+		}
+
+
+		[HttpGet("ProductNameByHighestPrice")]
+
+		public async Task<IActionResult> ProductNameByHighestPrice()
+		{
+			return Ok(await _productService.TProductNameWithHighestPriceAsync());
+		}
+
+
+		[HttpGet("ProductNameByLowestPrice")]
+
+		public async Task<IActionResult> ProductNameByLowestPrice()
+		{
+			return Ok(await _productService.TProductNameWithLowestPriceAsync());
+		}
+
+
+		[HttpGet("AverageProductPriceByHamburger")]
+
+		public async Task<IActionResult> AverageProductPriceByHamburger()
+		{
+			return Ok(await _productService.TAverageProductPriceByHamburgerAsync());
+		}
+	}
 }

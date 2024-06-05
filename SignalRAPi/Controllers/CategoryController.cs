@@ -75,6 +75,22 @@ namespace SignalRAPi.Controllers
             return Ok("Category updated Successfully");
         }
 
+        [HttpGet("CategoryCount")]
+        public async Task<IActionResult> CategoryCount()
+        {
+            return Ok(await _categoryService.TCategoryCount());
+        }
 
-    }
+		[HttpGet("ActiveCategoryCount")]
+		public async Task<IActionResult> ActiveCategoryCount()
+		{
+			return Ok(await _categoryService.TActiveCategoryCountAsync());
+		}
+		[HttpGet("PassiveCategoryCount")]
+		public async Task<IActionResult> PassiveCategoryCount()
+		{
+			return Ok(await _categoryService.TPassiveCategoryCountAsync());
+		}
+
+	}
 }

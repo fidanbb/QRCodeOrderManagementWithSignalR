@@ -18,12 +18,22 @@ namespace SignalR.BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
-        public async Task TAdd(Category entity)
+		public async Task<int> TActiveCategoryCountAsync()
+		{
+			return await _categoryDal.ActiveCategoryCountAsync();
+		}
+
+		public async Task TAdd(Category entity)
         {
             await _categoryDal.Add(entity); 
         }
 
-        public async Task TDelete(Category entity)
+		public async Task<int> TCategoryCount()
+		{
+			return await _categoryDal.CategoryCount();
+		}
+
+		public async Task TDelete(Category entity)
         {
             await _categoryDal.Delete(entity);
         }
@@ -38,7 +48,12 @@ namespace SignalR.BusinessLayer.Concrete
             return await _categoryDal.GetByID(id);
         }
 
-        public async Task TUpdate(Category entity)
+		public async Task<int> TPassiveCategoryCountAsync()
+		{
+			return await _categoryDal.PassiveCategoryCountAsync();
+		}
+
+		public async Task TUpdate(Category entity)
         {
            await _categoryDal.Update(entity);   
         }
