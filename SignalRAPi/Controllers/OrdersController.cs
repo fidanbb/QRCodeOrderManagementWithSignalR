@@ -36,5 +36,12 @@ namespace SignalRAPi.Controllers
 		{
 			return Ok(await _orderService.TLastOrderPriceAsync());
 		}
+
+		[HttpGet("TodayTotalPrice")]
+
+		public async Task<IActionResult> TodayTotalPrice()
+		{
+			return Ok(await _orderService.TTodayTotalPrice());
+		}
 	}
 }

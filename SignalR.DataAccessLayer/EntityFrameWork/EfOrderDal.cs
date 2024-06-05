@@ -34,6 +34,13 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
 									   .FirstOrDefaultAsync();
 		}
 
+		public async Task<decimal> TodayTotalPrice()
+		{
+			using var context = new SignalRContext();
+
+			return await context.Orders.Where(x => x.OrderDate == DateTime.Today).SumAsync(y => y.TotalPrice);
+		}
+
 		public async Task<int> TotalOrderCountAsync()
 		{
 			using var context = new SignalRContext();

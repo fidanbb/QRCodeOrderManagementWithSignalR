@@ -48,6 +48,11 @@ namespace SignalR.BusinessLayer.Concrete
 			return await _orderDal.LastOrderPriceAsync();
 		}
 
+		public async Task<decimal> TTodayTotalPrice()
+		{
+			return await _orderDal.TodayTotalPrice();
+		}
+
 		public async Task<int> TTotalOrderCountAsync()
 		{
 			return await _orderDal.TotalOrderCountAsync();
