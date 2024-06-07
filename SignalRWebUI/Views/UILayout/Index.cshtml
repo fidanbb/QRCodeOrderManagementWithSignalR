@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+
+<body > @* class="sub_page"  *@
+
+
+
+    @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+
+
+    <!-- main section -->
+      @RenderBody()
+    <!-- end main section -->
+
+    <!-- footer section -->
+    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+  
+
+    <!-- footer section -->
+    <!-- jQery -->
+    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
+   
+
+</body>
+
+</html>
