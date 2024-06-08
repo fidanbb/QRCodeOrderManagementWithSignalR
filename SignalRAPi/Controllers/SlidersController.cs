@@ -37,6 +37,7 @@ namespace SignalRAPi.Controllers
             await _sliderService.TAdd(new Slider()
             {
                Title = request.Title,
+               Row = request.Row,
                Description=request.Description,
                Status = true
             });
@@ -71,6 +72,7 @@ namespace SignalRAPi.Controllers
             await _sliderService.TUpdate(new Slider()
             {
                 SliderID = request.SliderID,
+                Row = request.Row,
                 Title = request.Title,
                 Status = request.Status
             });
