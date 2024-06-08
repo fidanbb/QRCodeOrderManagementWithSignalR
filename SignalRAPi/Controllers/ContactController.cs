@@ -35,7 +35,6 @@ namespace SignalRAPi.Controllers
 
             await _contactService.TAdd(new Contact()
             {
-                FooterDescription = request.FooterDescription,
                 Location = request.Location,
                 Mail = request.Mail,
                 Phone = request.Phone,
@@ -72,7 +71,6 @@ namespace SignalRAPi.Controllers
             await _contactService.TUpdate(new Contact()
             {
                 ContactID=request.ContactID,
-                FooterDescription = request.FooterDescription,
                 Location = request.Location,
                 Mail = request.Mail,
                 Phone = request.Phone,

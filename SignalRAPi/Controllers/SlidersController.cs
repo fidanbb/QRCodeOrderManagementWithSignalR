@@ -74,6 +74,7 @@ namespace SignalRAPi.Controllers
                 SliderID = request.SliderID,
                 Row = request.Row,
                 Title = request.Title,
+                Description= request.Description,
                 Status = request.Status
             });
 

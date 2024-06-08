@@ -24,7 +24,6 @@
 									<th scope="col">Location</th>
 									<th scope="col">Phone</th>
 									<th scope="col">Mail</th>
-									<th scope="col">Description</th>
 									<th scope="col">Delete</th>
 									<th scope="col">Update</th>
 								</tr>
@@ -37,7 +36,7 @@
 										<td>@item.Location</td>
 										<td>@item.Phone</td>
 										<td>@item.Mail</td>
-										<td>@item.FooterDescription</td>
+								
 										<td>
 											<a asp-controller="Contact" asp-action="DeleteContact" asp-route-id="@item.ContactID" class="btn btn-outline-danger btn-rounded"
 											   onclick="return confirm('Are you sure you want to delete this contact?')">Delete</a>

@@ -67,6 +67,8 @@ builder.Services.AddScoped<IMenuTableDal, EfMenuTableDal>();
 builder.Services.AddScoped<ISliderService, SliderManager>();
 builder.Services.AddScoped<ISliderDal, EfSliderDal>();
 
+builder.Services.AddScoped<IFooterService, FooterManager>();
+builder.Services.AddScoped<IFooterDal, EfFooterDal>();
 
 // Add services to the container.
 
