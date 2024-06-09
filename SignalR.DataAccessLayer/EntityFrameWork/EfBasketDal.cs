@@ -17,13 +17,12 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
         {
         }
 
-        public Task<List<Basket>> GetBasketByMenuTableNumberAsync(int id)
+        public async Task<List<Basket>> GetBasketByMenuTableNumberAsync(int id)
         {
             using var context = new SignalRContext();
 
-            var values=context.Baskets.Include(b => b.MenuTable)
-                                      .Include(b => b.Product)
-                                      .Where(x=>x.MenuTableID==id).ToListAsync();
+            var values=await context.Baskets.Include(m=>m.MenuTable).Include(z=>z.Product).Where(x => x.MenuTableID == id)
+                                     .ToListAsync();
 
             return values;
         }
