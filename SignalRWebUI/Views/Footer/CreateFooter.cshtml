@@ -1,0 +1,51 @@
+﻿@model CreateFooterDto
+@{
+    ViewData["Title"] = "CreateFooter";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Footer Opeartions</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Adding New Footer</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title">Enter Title</label>
+                                <input type="text" class="form-control" asp-for="Title" id="title">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="openingDays">Enter Opening Days</label>
+                                <input type="text" class="form-control" asp-for="OpeningDays" id="openingDays">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="openingHours">Enter Opening Hours</label>
+                                <input type="text" class="form-control" asp-for="OpeningTimes" id="openingHours">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="description">Enter Description</label>
+                                <textarea rows="5" class="form-control" asp-for="Description" id="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Add Footer</button>
+                            <a asp-controller="Footer" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
