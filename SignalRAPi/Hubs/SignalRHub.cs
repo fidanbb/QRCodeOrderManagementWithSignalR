@@ -13,6 +13,7 @@ namespace SignalRAPi.Hubs
 		private readonly IMenuTableService _menuTableService;
 		private readonly IBookingService _bookingService;
 
+
 		public SignalRHub(ICategoryService categoryService, 
 			              IProductService productService, 
 						  IOrderService orderService, 
@@ -115,5 +116,13 @@ namespace SignalRAPi.Hubs
 			//var value11 = await _productService.TTotalPriceBySaladCategory();
 			//await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11);
 		}
+
+
+
+		public async Task GetBookingList()
+		{
+            var values =await _bookingService.TGetAll();
+            await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
 	}
 }
