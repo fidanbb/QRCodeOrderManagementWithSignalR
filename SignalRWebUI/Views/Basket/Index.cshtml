@@ -50,7 +50,7 @@
                     <tbody class="align-middle">
                         @foreach (var item in Model)
                         {
-                            basketTotalPrice = Model.Sum(x => x.Price);
+                            basketTotalPrice = Model.Sum(x =>x.Count * x.Price);
                             tax = basketTotalPrice / 100 * 10;
                             basketTotalPriceWithTax = basketTotalPrice + tax;
                             count++;
@@ -60,7 +60,7 @@
                                 <td class="align-middle">@item.Count</td>
                                 <td class="align-middle">@item.Price</td>
                                 <td class="align-middle">@item.TotalPrice</td>
-                                <td class="align-middle btn-delete"><button data-basketid="@item.BasketID" id="btndeletebasketid" class="btn btn-sm btn-danger"><i class="fa fa-times" style="color:white"></i></button></td>
+                                <td class="align-middle btn-delete"><a class="btn btn-sm btn-danger" href="/Basket/DeleteBasket/@item.BasketID"><i class="fa fa-times"></i></a></td>
                             </tr>
                         }
                     </tbody>

@@ -36,25 +36,25 @@ namespace SignalRAPi.Controllers
 
         public async Task<IActionResult> CreateBasket(CreateBasketDto createBasketDto)
         {
-            var basket = await _basketService.TGetBasketByProductID(createBasketDto.ProductID,4); //get basket by productId and MenuTableId
+            var basket = await _basketService.TGetBasketByProductID(createBasketDto.ProductID, 4); //get basket by productId and MenuTableId
 
-            
+
             if (basket != null)
             {
                 var count = basket.Count;
                 count++;
                 await _basketService.TUpdate(new Basket()
                 {
-                    BasketID=basket.BasketID,
+                    BasketID = basket.BasketID,
                     Count = count,
-                    MenuTableID=4,
-                    ProductID= createBasketDto.ProductID,
+                    MenuTableID = 4,
+                    ProductID = createBasketDto.ProductID,
                     Price = await _productService.TGetPriceByProductID(createBasketDto.ProductID),
                     TotalPrice = 0
                 });
             }
 
-          
+
 
             else
             {
@@ -67,9 +67,23 @@ namespace SignalRAPi.Controllers
                     TotalPrice = 0
                 });
             }
-          
+
 
             return Ok("Product successfully added to basket");
-        }   
+        }
+
+
+
+        [HttpDelete("{id}")]
+
+        public async Task<IActionResult>DeleteBasket(int id)
+        {
+            var value = await _basketService.TGetByID(id);
+
+            await _basketService.TDelete(value);
+
+            return Ok("Basket successfully deleted");
+
+        }
     }
 }
