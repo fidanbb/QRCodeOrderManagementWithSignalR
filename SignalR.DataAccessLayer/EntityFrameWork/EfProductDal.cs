@@ -37,7 +37,14 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
 										 
 		}
 
-		public async Task<List<Product>> GetProductsWithCategoriesAsync()
+        public async Task<decimal> GetPriceByProductID(int id)
+        {
+            using var context = new SignalRContext();
+
+			return await context.Products.Where(x=>x.ProductId==id).Select(x=>x.Price).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<Product>> GetProductsWithCategoriesAsync()
         {
             var context = new SignalRContext();
 

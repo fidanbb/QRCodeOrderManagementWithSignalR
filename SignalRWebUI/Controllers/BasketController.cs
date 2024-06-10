@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.BasketDtos;
+using System.Text;
 
 namespace SignalRWebUI.Controllers
 {
@@ -16,7 +17,7 @@ namespace SignalRWebUI.Controllers
         {
             var client =_httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync("https://localhost:7209/api/Basket/3");
+            var responseMessage = await client.GetAsync("https://localhost:7209/api/Basket/4");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -28,5 +29,7 @@ namespace SignalRWebUI.Controllers
             }
             return View();
         }
+
+      
     }
 }

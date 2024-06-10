@@ -17,6 +17,8 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
         {
         }
 
+        
+
         public async Task<List<Basket>> GetBasketByMenuTableNumberAsync(int id)
         {
             using var context = new SignalRContext();
@@ -25,6 +27,15 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
                                      .ToListAsync();
 
             return values;
+        }
+
+      
+
+        public async Task<Basket> GetBasketByProductID(int productId, int menuTableId)
+        {
+            using var context = new SignalRContext();
+
+            return await context.Baskets.FirstOrDefaultAsync(m => m.ProductID == productId && m.MenuTableID ==menuTableId);
         }
     }
 }

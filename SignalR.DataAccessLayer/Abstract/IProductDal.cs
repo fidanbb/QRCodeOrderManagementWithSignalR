@@ -20,5 +20,7 @@ namespace SignalR.DataAccessLayer.Abstract
         Task<string> ProductNameWithLowestPriceAsync();
 
         Task<decimal> AverageProductPriceByHamburgerAsync();
+
+        Task<decimal> GetPriceByProductID(int id);
     }
 }

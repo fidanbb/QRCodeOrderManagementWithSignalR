@@ -17,5 +17,6 @@ namespace SignalR.BusinessLayer.Abstract
 		Task<string> TProductNameWithHighestPriceAsync();
 		Task<string> TProductNameWithLowestPriceAsync();
 		Task<decimal> TAverageProductPriceByHamburgerAsync();
-	}
+        Task<decimal> TGetPriceByProductID(int id);
+    }
 }

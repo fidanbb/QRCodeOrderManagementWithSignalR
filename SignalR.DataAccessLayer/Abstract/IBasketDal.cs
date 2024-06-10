@@ -10,5 +10,7 @@ namespace SignalR.DataAccessLayer.Abstract
     public interface IBasketDal:IGenericDal<Basket>
     {
         Task<List<Basket>> GetBasketByMenuTableNumberAsync(int id);
+
+        Task<Basket> GetBasketByProductID(int productId,int menuTableId);
     }
 }

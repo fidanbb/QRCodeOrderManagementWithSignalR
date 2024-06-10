@@ -23,6 +23,7 @@ namespace SignalR.BusinessLayer.Concrete
            await _basketDal.Add(entity);
         }
 
+      
         public async Task TDelete(Basket entity)
         {
            await _basketDal.Delete(entity);
@@ -36,6 +37,12 @@ namespace SignalR.BusinessLayer.Concrete
         public async Task<List<Basket>> TGetBasketByMenuTableNumberAsync(int id)
         {
             return await _basketDal.GetBasketByMenuTableNumberAsync(id);
+        }
+
+      
+        public async Task<Basket> TGetBasketByProductID(int productId, int menuTableId)
+        {
+            return await _basketDal.GetBasketByProductID(productId,menuTableId);
         }
 
         public async Task<Basket> TGetByID(int id)
