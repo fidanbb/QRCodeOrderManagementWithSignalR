@@ -33,6 +33,7 @@ namespace SignalR.DataAccessLayer.Concrete
         public DbSet<Footer> Footers { get; set; }
 
         public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
     }
 }
