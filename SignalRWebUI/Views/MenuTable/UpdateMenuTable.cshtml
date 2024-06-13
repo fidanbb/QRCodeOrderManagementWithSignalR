@@ -1,0 +1,34 @@
+﻿@model UpdateMenuTableDto
+@{
+    ViewData["Title"] = "UpdateMenuTable";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Menu Table Opeartions</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update New Table</div>
+                        </div>
+                        <input type="hidden" asp-for="MenuTableID" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Name">Enter Table Name</label>
+                                <input type="text" class="form-control" asp-for="Name" id="Name">
+                            </div>
+                        </div>
+
+                        <div class="card-action">
+                            <button class="btn btn-success">Update Table</button>
+                            <a asp-controller="MenuTable" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,24 +18,24 @@ namespace SignalR.BusinessLayer.Concrete
 			_menuTableDal = menuTableDal;
 		}
 
-		public Task TAdd(MenuTable entity)
+		public async Task TAdd(MenuTable entity)
 		{
-			throw new NotImplementedException();
+			await _menuTableDal.Add(entity);
 		}
 
-		public Task TDelete(MenuTable entity)
+		public async Task TDelete(MenuTable entity)
 		{
-			throw new NotImplementedException();
+			await _menuTableDal.Delete(entity);
 		}
 
-		public Task<List<MenuTable>> TGetAll()
+		public async Task<List<MenuTable>> TGetAll()
 		{
-			throw new NotImplementedException();
+			return await _menuTableDal.GetAll();
 		}
 
-		public Task<MenuTable> TGetByID(int id)
+		public async Task<MenuTable> TGetByID(int id)
 		{
-			throw new NotImplementedException();
+			return await _menuTableDal.GetByID(id);
 		}
 
 		public async Task<int> TMenuTableCountAsync()
@@ -43,9 +43,9 @@ namespace SignalR.BusinessLayer.Concrete
 		    return await _menuTableDal.MenuTableCountAsync();
 		}
 
-		public Task TUpdate(MenuTable entity)
+		public async Task TUpdate(MenuTable entity)
 		{
-			throw new NotImplementedException();
+			await _menuTableDal.Update(entity);
 		}
 	}
 }

@@ -37,6 +37,12 @@
 		</div>
 		<ul class="nav">
 			<li class="nav-item">
+				<a asp-controller="Default" asp-action="Index">
+					<i class="la la-motorcycle"></i>
+					<p>Go to the Site</p>
+				</a>
+			</li>
+			<li class="nav-item">
 				<a href="index.html">
 					<i class="la la-dashboard"></i>
 					<p>Dashboard</p>
@@ -44,10 +50,10 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="components.html">
-					<i class="la la-table"></i>
+				<a asp-controller="Menu" asp-action="Index">
+					<i class="la la-music"></i>
 					<p>View Menu</p>
-					<span class="badge badge-count">14</span>
+				
 				</a>
 			</li>
 			<li class="nav-item">
@@ -59,7 +65,7 @@
 			</li>
 			<li class="nav-item ">
 				<a asp-controller="Product" asp-action="Index">
-					<i class="la la-th"></i>
+					<i class="la la-birthday-cake"></i>
 					<p>Products</p>
 				
 				</a>
@@ -78,28 +84,23 @@
 					
 				</a>
 			</li>
-			<li class="nav-item">
-				<a href="icons.html">
-					<i class="la la-fonticons"></i>
-					<p>Messages</p>
-				</a>
-			</li>
+
 
 			<li class="nav-item">
 				<a asp-controller="Discount" asp-action="Index">
-					<i class="la la-fonticons"></i>
+					<i class="la la-money"></i>
 					<p>Discounts</p>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a asp-controller="Contact" asp-action="Index">
-					<i class="la la-fonticons"></i>
+					<i class="la la-phone-square"></i>
 					<p>Contacts</p>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a asp-controller="Slider" asp-action="Index">
-					<i class="la la-fonticons"></i>
+					<i class="la la-gamepad"></i>
 					<p>Sliders</p>
 				</a>
 			</li>
@@ -111,39 +112,86 @@
 			</li>
 			<li class="nav-item">
 				<a asp-controller="Testimonial" asp-action="Index">
-					<i class="la la-fonticons"></i>
+					<i class="la la-group"></i>
 					<p>Testimonials</p>
 				</a>
 			</li>
 			<li class="nav-item">
 				<a asp-controller="SocialMedia" asp-action="Index">
-					<i class="la la-fonticons"></i>
+					<i class="la la-map-marker"></i>
 					<p>Social Media</p>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="icons.html">
-					<i class="la la-fonticons"></i>
+				<a asp-controller="Statistic" asp-action="Index">
+					<i class="la la-pie-chart"></i>
 					<p>Statistics</p>
 				</a>
 			</li>
 			<li class="nav-item">
+				<a asp-controller="MenuTable" asp-action="Index">
+					<i class="la la-optin-monster"></i>
+					<p>Tables</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a asp-controller="MenuTable" asp-action="TableListByStatus">
+					<i class="la la-ship"></i>
+					<p>Table Statuses</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a asp-controller="MenuTable" asp-action="Index">
+					<i class="la la-vimeo-square la-vine la-vk la-volume-down la-volume-off la-volume-up la-warning la-wechat"></i>
+					<p>Message Page</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a asp-controller="Notification" asp-action="Index">
+					<i class="la la-umbrella"></i>
+					<p>Notifications</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a asp-controller="ProgressBars" asp-action="Index">
+					<i class="la la-bar-chart"></i>
+					<p>Instant Progress Bars</p>
+				</a>
+			</li>
+
+
+			<li class="nav-item">
 				<a href="icons.html">
-					<i class="la la-fonticons"></i>
+					<i class="la la-chain"></i>
 					<p>Setting</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a asp-controller="Mail" asp-action="Index">
+					<i class="la la-pie-chart"></i>
+					<p>Mail Operations</p>
 				</a>
 			</li>
 
 			<li class="nav-item">
-				<a href="icons.html">
-					<i class="la la-fonticons"></i>
+				<a asp-controller="QRCode" asp-action="Index">
+					<i class="la la-qrcode"></i>
+					<p>Generate QR Code</p>
+				</a>
+			</li>
+			
+	
+
+			<li class="nav-item">
+				<a asp-controller="Login" asp-action="LogOut">
+					<i class="la la-plane"></i>
 					<p>Log out</p>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="icons.html">
-					<i class="la la-fonticons"></i>
-					<p>Login</p>
+				<a asp-controller="Login" asp-action="LogOut">
+					<i class="la la-plane"></i>
+					<p>Log out</p>
 				</a>
 			</li>
 			
