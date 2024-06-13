@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DataAccessLayer.Concrete;
+using System.Runtime.CompilerServices;
 
 namespace SignalRAPi.Hubs
 {
@@ -31,9 +32,9 @@ namespace SignalRAPi.Hubs
 			_notificationService = notificationService;
 		}
 
+        public static int clientCount { get; set; } = 0;
 
-
-		public async Task SendStatistic()
+        public async Task SendStatistic()
 		{
             var value=await _categoryService.TCategoryCount();
             await Clients.All.SendAsync("ReceiveCategoryCount",value);
@@ -148,5 +149,23 @@ namespace SignalRAPi.Hubs
 		{
 			await Clients.All.SendAsync("ReceiveMessage", user, message);
 		}
-	}
+
+        public override async Task OnConnectedAsync()
+        {
+			clientCount++;
+
+			await Clients.All.SendAsync("ReceiveClientCount",clientCount);
+            await base.OnConnectedAsync();
+        }
+
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+			clientCount--;
+
+			await Clients.All.SendAsync("ReceiveClientCount",clientCount);
+
+			await base.OnDisconnectedAsync(exception);
+
+        }
+    }
 }
