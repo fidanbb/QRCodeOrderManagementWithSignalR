@@ -15,5 +15,28 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
         public EfBookingDal(SignalRContext context) : base(context)
         {
         }
-    }
+
+		public async Task BookingStatusApproved(int id)
+		{
+			using var context=new SignalRContext();
+
+			var value = await context.Bookings.FindAsync(id);
+
+			value.Description = "Reservation Approved";
+
+			await context.SaveChangesAsync();
+
+		}
+
+		public async Task BookingStatusCanceled(int id)
+		{
+			using var context = new SignalRContext();
+
+			var value = await context.Bookings.FindAsync(id);
+
+			value.Description = "Reservation Canceled";
+
+			await context.SaveChangesAsync();
+		}
+	}
 }

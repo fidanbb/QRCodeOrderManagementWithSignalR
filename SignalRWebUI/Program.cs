@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.EntityLayer.Entities;
 
@@ -7,8 +8,28 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<SignalRContext>();
-builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<SignalRContext>();
+builder.Services.AddIdentity<AppUser,AppRole>()
+                .AddEntityFrameworkStores<SignalRContext>()
+                .AddDefaultTokenProviders();
 builder.Services.AddHttpClient();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+	options.Password.RequireNonAlphanumeric = true;
+	options.Password.RequireDigit = true;
+	options.Password.RequireLowercase = true;
+	options.Password.RequireUppercase = true;
+	options.Password.RequiredLength = 6;
+
+	options.User.RequireUniqueEmail = true;
+
+	options.SignIn.RequireConfirmedEmail = false;
+
+	// Default Lockout settings.
+	options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+	options.Lockout.MaxFailedAccessAttempts = 5;
+	options.Lockout.AllowedForNewUsers = true;
+});
 
 var app = builder.Build();
 
@@ -25,6 +46,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

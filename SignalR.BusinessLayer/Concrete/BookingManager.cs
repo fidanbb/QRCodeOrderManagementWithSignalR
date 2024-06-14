@@ -24,7 +24,17 @@ namespace SignalR.BusinessLayer.Concrete
             await _bookingDal.Add(entity);
         }
 
-        public async Task TDelete(Booking entity)
+		public async Task TBookingStatusApproved(int id)
+		{
+            await _bookingDal.BookingStatusApproved(id);
+		}
+
+		public async Task TBookingStatusCanceled(int id)
+		{
+			await _bookingDal.BookingStatusCanceled(id);
+		}
+
+		public async Task TDelete(Booking entity)
         {
             await _bookingDal.Delete(entity);
         }

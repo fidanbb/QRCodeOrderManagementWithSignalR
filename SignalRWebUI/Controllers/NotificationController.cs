@@ -70,7 +70,7 @@ namespace SignalRWebUI.Controllers
 		[HttpPost]
 		public async Task<IActionResult> UpdateNotification(UpdateNotificationDto updateNotificationDto)
 		{
-			updateNotificationDto.Date = DateTime.Now;
+			//updateNotificationDto.Date = DateTime.Now;
 
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(updateNotificationDto);

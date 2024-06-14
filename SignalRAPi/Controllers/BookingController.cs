@@ -34,6 +34,7 @@ namespace SignalRAPi.Controllers
             {
                 Mail = request.Mail,
                 Date = request.Date,
+                Description=request.Description,
                 Name = request.Name,
                 PersonCount = request.PersonCount,
                 Phone = request.Phone,
@@ -62,7 +63,8 @@ namespace SignalRAPi.Controllers
             {
                 BookingID = request.BookingID,
                 Mail = request.Mail,
-                Date = request.Date,
+				Description = request.Description,
+				Date = request.Date,
                 Name = request.Name,
                 PersonCount = request.PersonCount,
                 Phone = request.Phone,
@@ -81,5 +83,19 @@ namespace SignalRAPi.Controllers
 
             return Ok(value);
         }
-    }
+
+		[HttpGet("BookingStatusApproved/{id}")]
+		public async Task<IActionResult> BookingStatusApproved(int id)
+		{
+		  await	_bookingService.TBookingStatusApproved(id);
+			return Ok("Booking Description Changed");
+		}
+		[HttpGet("BookingStatusCancelled/{id}")]
+		public async Task<IActionResult> BookingStatusCancelled(int id)
+		{
+			await _bookingService.TBookingStatusCanceled(id);
+
+			return Ok("Booking Description Changed");
+		}
+	}
 }

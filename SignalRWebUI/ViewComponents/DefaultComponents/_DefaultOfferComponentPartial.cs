@@ -17,7 +17,7 @@ namespace SignalRWebUI.ViewComponents.DefaultComponents
         {
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync("https://localhost:7209/api/Discount");
+            var responseMessage = await client.GetAsync("https://localhost:7209/api/Discount/GetListbyStatusTrue");
 
             if (responseMessage.IsSuccessStatusCode)
             {

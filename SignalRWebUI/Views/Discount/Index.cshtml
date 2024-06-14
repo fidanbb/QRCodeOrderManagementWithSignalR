@@ -2,6 +2,7 @@
 @{
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
 }
 
 <div class="content">
@@ -15,7 +16,7 @@
 					</div>
 					<div class="card-body">
 						<div class="card-sub">
-							You can perform discount-related operations below: Please only choose 2 discounted item for theme integrity
+							You can perform discount-related operations below: Please only choose <strong>2</strong> discounted item for theme integrity
 						</div>
 						<table class="table mt-3">
 							<thead>
@@ -26,21 +27,26 @@
 									<th scope="col">Status</th>
 									<th scope="col">Delete</th>
 									<th scope="col">Update</th>
+									<th scope="col">Make Active</th>
+									<th scope="col">Make Passive</th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach (var item in Model)
 								{
+									count++;
 									<tr>
-										<td>@item.DiscountID</td>
+										<th>@count</th>
 										<td>@item.Title</td>
 										<td>@item.Amount</td>
-										<td><a asp-controller="Discount" asp-action="UpdateDiscount" asp-route-id="@item.DiscountID" class="btn btn-outline-warning btn-rounded">Status</a></td>
+										<td>@item.Status</td>
 										<td>
 											<a asp-controller="Discount" asp-action="DeleteDiscount" asp-route-id="@item.DiscountID" class="btn btn-outline-danger btn-rounded"
 											   onclick="return confirm('Are you sure you want to delete this discount?')">Delete</a>
 										</td>
 										<td><a asp-controller="Discount" asp-action="UpdateDiscount" asp-route-id="@item.DiscountID" class="btn btn-outline-success btn-rounded">Update</a></td>
+										<td><a href="/Discount/ChangeStatusToTrue/@item.DiscountID" class="btn btn-outline-warning">Make Active</a></td>
+										<td><a href="/Discount/ChangeStatusToFalse/@item.DiscountID" class="btn btn-outline-dark">Make Passive</a></td>
 									</tr>
 								}
 

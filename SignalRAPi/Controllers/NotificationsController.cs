@@ -52,7 +52,7 @@ namespace SignalRAPi.Controllers
 				Icon = createNotificationDto.Icon,
 				Status = false,
 				Type = createNotificationDto.Type,
-				Date = Convert.ToDateTime(DateTime.Now.ToShortDateString())
+				Date = createNotificationDto.Date
 			};
 			await _notificationService.TAdd(notification);
 			return Ok("Notification addeed successfully");

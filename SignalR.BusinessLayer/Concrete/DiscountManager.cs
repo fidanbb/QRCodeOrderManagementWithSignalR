@@ -24,7 +24,17 @@ namespace SignalR.BusinessLayer.Concrete
            await _discountDal.Add(entity);
         }
 
-        public async Task TDelete(Discount entity)
+		public async Task TChangeStatusToFalse(int id)
+		{
+            await _discountDal.ChangeStatusToFalse(id);
+		}
+
+		public async Task TChangeStatusToTrue(int id)
+		{
+            await _discountDal.ChangeStatusToTrue(id);
+		}
+
+		public async Task TDelete(Discount entity)
         {
            await _discountDal.Delete(entity);
         }
@@ -39,7 +49,12 @@ namespace SignalR.BusinessLayer.Concrete
            return await _discountDal.GetByID(id);
         }
 
-        public async Task TUpdate(Discount entity)
+		public async Task<List<Discount>> TGetListByStatusTrue()
+		{
+			return await _discountDal.GetListByStatusTrue();
+		}
+
+		public async Task TUpdate(Discount entity)
         {
             await _discountDal.Update(entity);
         }

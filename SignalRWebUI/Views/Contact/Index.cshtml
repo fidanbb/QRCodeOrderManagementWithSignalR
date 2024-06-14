@@ -2,6 +2,7 @@
 @{
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
 }
 
 <div class="content">
@@ -15,7 +16,7 @@
 					</div>
 					<div class="card-body">
 						<div class="card-sub">
-							You can perform contact-related operations below: Don't forget to create only one contact
+							You can perform contact-related operations below: Don't forget to create only <strong>one</strong>  contact
 						</div>
 						<table class="table mt-3">
 							<thead>
@@ -31,8 +32,9 @@
 							<tbody>
 								@foreach (var item in Model)
 								{
+									count++;
 									<tr>
-										<td>@item.ContactID</td>
+										<th>@count</th>
 										<td>@item.Location</td>
 										<td>@item.Phone</td>
 										<td>@item.Mail</td>

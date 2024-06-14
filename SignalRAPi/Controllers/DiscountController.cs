@@ -32,6 +32,7 @@ namespace SignalRAPi.Controllers
         {
            await _discountService.TAdd(new Discount()
             {
+                 Status=false,
                 Amount = createDiscountDto.Amount,
                 Description = createDiscountDto.Description,
                 ImageUrl = createDiscountDto.ImageUrl,
@@ -59,12 +60,34 @@ namespace SignalRAPi.Controllers
            await _discountService.TUpdate(new Discount()
             {
                 Amount = updateDiscountDto.Amount,
-                Description = updateDiscountDto.Description,
+			   Status = false,
+			   Description = updateDiscountDto.Description,
                 ImageUrl = updateDiscountDto.ImageUrl,
                 Title = updateDiscountDto.Title,
                 DiscountID = updateDiscountDto.DiscountID,
             });
             return Ok("Discount updated Successfully");
         }
-    }
+
+		[HttpGet("ChangeStatusToTrue/{id}")]
+		public async Task<IActionResult> ChangeStatusToTrue(int id)
+		{
+		   await _discountService.TChangeStatusToTrue(id);
+			return Ok("Product Discount Activated");
+		}
+
+		[HttpGet("ChangeStatusToFalse/{id}")]
+		public async Task<IActionResult> ChangeStatusToFalse(int id)
+		{
+			await _discountService.TChangeStatusToFalse(id);
+			return Ok("Product Discount Has Been Disabled");
+		}
+
+		[HttpGet("GetListByStatusTrue")]
+		public async Task<IActionResult> GetListByStatusTrue()
+		{
+			return Ok(_mapper.Map<List<ResultDiscountDto>>(await _discountService.TGetListByStatusTrue()));
+		}
+
+	}
 }

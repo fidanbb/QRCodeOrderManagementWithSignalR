@@ -1,14 +1,21 @@
-﻿<div class="sidebar">
+﻿@inject UserManager<AppUser> _userManager;
+
+@{
+	AppUser user = _userManager.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+}
+
+
+<div class="sidebar">
 	<div class="scrollbar-inner sidebar-wrapper">
 		<div class="user">
 			<div class="photo">
-				<img src="~/Ready-Bootstrap-Dashboard-master/assets/img/profile.jpg">
+				<img src="~/Ready-Bootstrap-Dashboard-master/assets/img/profile2.jpg">
 			</div>
 			<div class="info">
 				<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 					<span>
-						SignalR Admin Panel
-						<span class="user-level">Admin</span>
+						Feare Admin Panel
+						<span class="user-level">@User.Identity.Name</span>
 						<span class="caret"></span>
 					</span>
 				</a>
@@ -17,20 +24,22 @@
 				<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
 					<ul class="nav">
 						<li>
-							<a href="#profile">
+							<a href="/Menu/Index">
 								<span class="link-collapse">View Menu</span>
 							</a>
 						</li>
 						<li>
-							<a href="#edit">
-								<span class="link-collapse">Edit Password</span>
+							<a href="/Register/Index">
+								<span class="link-collapse">Register</span>
 							</a>
 						</li>
 						<li>
-							<a href="#settings">
-								<span class="link-collapse">Settings</span>
+							<a href="/Login/Index">
+								<span class="link-collapse">Login</span>
 							</a>
 						</li>
+						
+					
 					</ul>
 				</div>
 			</div>
@@ -141,7 +150,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a asp-controller="MenuTable" asp-action="Index">
+				<a asp-controller="Message" asp-action="Index">
 					<i class="la la-vimeo-square la-vine la-vk la-volume-down la-volume-off la-volume-up la-warning la-wechat"></i>
 					<p>Message Page</p>
 				</a>
@@ -160,12 +169,7 @@
 			</li>
 
 
-			<li class="nav-item">
-				<a href="icons.html">
-					<i class="la la-chain"></i>
-					<p>Setting</p>
-				</a>
-			</li>
+			
 			<li class="nav-item">
 				<a asp-controller="Mail" asp-action="Index">
 					<i class="la la-pie-chart"></i>
@@ -179,8 +183,13 @@
 					<p>Generate QR Code</p>
 				</a>
 			</li>
-			
-	
+
+			<li class="nav-item">
+				<a href="icons.html">
+					<i class="la la-chain"></i>
+					<p>Setting</p>
+				</a>
+			</li>
 
 			<li class="nav-item">
 				<a asp-controller="Login" asp-action="LogOut">
