@@ -25,5 +25,7 @@ namespace SignalR.DataAccessLayer.Abstract
         Task<decimal> ProductPriceBySteakBurger();
         Task<decimal> TotalPriceByDrinkCategory();
         Task<decimal> TotalPriceBySaladCategory();
+
+        Task<decimal> TotalProductPriceAsync();
     }
 }

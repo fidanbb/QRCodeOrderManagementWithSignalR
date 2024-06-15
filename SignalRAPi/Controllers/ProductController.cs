@@ -160,5 +160,11 @@ namespace SignalRAPi.Controllers
 			return Ok(await _productService.TTotalPriceBySaladCategory());
 		}
 
+		[HttpGet("TotalProductPrice")]
+		public async Task<IActionResult> TotalProductPrice()
+		{
+			return Ok(await _productService.TTotalProductPriceAsync());
+		}
+
 	}
 }

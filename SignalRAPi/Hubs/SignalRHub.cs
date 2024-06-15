@@ -101,6 +101,8 @@ namespace SignalRAPi.Hubs
 			var value5 = await _productService.TAverageProductPriceAsync();
 			await Clients.All.SendAsync("ReceiveProductPriceAvg", value5);
 
+			await Clients.All.SendAsync("ReceiveProductPriceAverage", "$" + value5.ToString("0.00"));
+
 			var value6 = await _productService.TAverageProductPriceByHamburgerAsync();
 			await Clients.All.SendAsync("ReceiveAvgPriceByHamburger", value6);
 
@@ -124,6 +126,16 @@ namespace SignalRAPi.Hubs
 
 			var value13 = await _productService.TProductCountAsync();
 			await Clients.All.SendAsync("ReceiveProductCount", value13);
+
+			var value14 = await _bookingService.TBookingCountAsync(); ;
+			await Clients.All.SendAsync("ReceiveBookingCount", value14);
+
+			var value15 = await _productService.TTotalProductPriceAsync(); ;
+			await Clients.All.SendAsync("ReceiveTotalProductPrice", "$" + value15.ToString("0.00"));
+
+			var value16 = await _orderService.TLastOrderPriceAsync();
+			await Clients.All.SendAsync("ReceiveLastOrderPrice", "$" + value16.ToString("0.00"));
+
 		}
 
 

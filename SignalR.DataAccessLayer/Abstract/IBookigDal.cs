@@ -11,5 +11,7 @@ namespace SignalR.DataAccessLayer.Abstract
     {
         Task BookingStatusApproved(int id);
         Task BookingStatusCanceled(int id);
+
+        Task<int> BookingCountAsync();
     }
 }

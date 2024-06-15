@@ -98,7 +98,12 @@ namespace SignalR.BusinessLayer.Concrete
             return await _productDal.TotalPriceBySaladCategory();
         }
 
-        public async Task TUpdate(Product entity)
+		public async Task<decimal> TTotalProductPriceAsync()
+		{
+			return await _productDal.TotalProductPriceAsync();
+		}
+
+		public async Task TUpdate(Product entity)
         {
            await _productDal.Update(entity);
         }

@@ -19,7 +19,12 @@ namespace SignalR.BusinessLayer.Concrete
             _bookingDal = bookingDal;
         }
 
-        public async Task TAdd(Booking entity)
+		public async Task<int> TBookingCountAsync()
+		{
+			return await _bookingDal.BookingCountAsync();
+		}
+
+		public async Task TAdd(Booking entity)
         {
             await _bookingDal.Add(entity);
         }

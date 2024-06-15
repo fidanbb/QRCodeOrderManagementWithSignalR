@@ -113,5 +113,11 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
             int id =await context.Categories.Where(x => x.CategoryName == "Salad").Select(y => y.CategoryId).FirstOrDefaultAsync();
             return await context.Products.Where(x => x.CategoryId == id).SumAsync(y => y.Price);
         }
-    }
+
+		public async Task<decimal> TotalProductPriceAsync()
+		{
+			using var context = new SignalRContext();
+			return await context.Products.SumAsync(x => x.Price);
+		}
+	}
 }

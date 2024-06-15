@@ -1,4 +1,5 @@
-﻿using SignalR.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using SignalR.DataAccessLayer.Abstract;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.DataAccessLayer.Repositories;
 using SignalR.EntityLayer.Entities;
@@ -37,6 +38,13 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
 			value.Description = "Reservation Canceled";
 
 			await context.SaveChangesAsync();
+		}
+
+		public async Task<int> BookingCountAsync()
+		{
+			using var context = new SignalRContext();
+
+			return await context.Bookings.CountAsync();
 		}
 	}
 }

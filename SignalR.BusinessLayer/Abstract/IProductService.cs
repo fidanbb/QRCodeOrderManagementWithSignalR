@@ -22,5 +22,7 @@ namespace SignalR.BusinessLayer.Abstract
         Task<decimal> TProductPriceBySteakBurger();
         Task<decimal> TTotalPriceByDrinkCategory();
         Task<decimal> TTotalPriceBySaladCategory();
-    }
+
+		Task<decimal> TTotalProductPriceAsync();
+	}
 }

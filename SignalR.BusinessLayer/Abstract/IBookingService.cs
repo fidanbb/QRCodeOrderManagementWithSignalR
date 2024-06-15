@@ -11,5 +11,6 @@ namespace SignalR.BusinessLayer.Abstract
     {
 		Task TBookingStatusApproved(int id);
 		Task TBookingStatusCanceled(int id);
+		Task<int> TBookingCountAsync();
 	}
 }
