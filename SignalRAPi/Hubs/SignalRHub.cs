@@ -110,14 +110,20 @@ namespace SignalRAPi.Hubs
 			var value8 = await _orderService.TTotalOrderCountAsync();
 			await Clients.All.SendAsync("ReceiveTotalOrderCount", value8);
 
-			//var value9 = await _productService.TProductPriceBySteakBurgerAsync();
-			//await Clients.All.SendAsync("ReceiveProductPriceBySteakBurger", value9);
+			var value9 = await _productService.TProductPriceBySteakBurger();
+			await Clients.All.SendAsync("ReceiveProductPriceBySteakBurger", value9);
 
-			//var value10 = await _productService.TTotalPriceByDrinkCategoryAsync();
-			//await Clients.All.SendAsync("ReceiveTotalPriceByDrinkCategory", value10);
+			var value10 = await _productService.TTotalPriceByDrinkCategory();
+			await Clients.All.SendAsync("ReceiveTotalPriceByDrinkCategory", value10);
 
-			//var value11 = await _productService.TTotalPriceBySaladCategory();
-			//await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11);
+			var value11 = await _productService.TTotalPriceBySaladCategory();
+			await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11);
+
+			var value12 = await _categoryService.TCategoryCount();
+			await Clients.All.SendAsync("ReceiveCategoryCount", value12);
+
+			var value13 = await _productService.TProductCountAsync();
+			await Clients.All.SendAsync("ReceiveProductCount", value13);
 		}
 
 

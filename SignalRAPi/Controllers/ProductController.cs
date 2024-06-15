@@ -141,5 +141,24 @@ namespace SignalRAPi.Controllers
 		{
 			return Ok(await _productService.TAverageProductPriceByHamburgerAsync());
 		}
+
+		[HttpGet("ProductPriceBySteakBurger")]
+		public async Task<IActionResult> ProductPriceBySteakBurger()
+		{
+			return Ok(await _productService.TProductPriceBySteakBurger());
+		}
+
+		[HttpGet("TotalPriceByDrinkCategory")]
+		public async Task<IActionResult> TotalPriceByDrinkCategory()
+		{
+			return Ok(await _productService.TTotalPriceByDrinkCategory());
+		}
+
+		[HttpGet("TotalPriceBySaladCategory")]
+		public async Task<IActionResult> TotalPriceBySaladCategory()
+		{
+			return Ok(await _productService.TTotalPriceBySaladCategory());
+		}
+
 	}
 }

@@ -83,7 +83,22 @@ namespace SignalR.BusinessLayer.Concrete
             return await _productDal.ProductNameWithLowestPriceAsync();
 		}
 
-		public async Task TUpdate(Product entity)
+        public async Task<decimal> TProductPriceBySteakBurger()
+        {
+            return await _productDal.ProductPriceBySteakBurger();
+        }
+
+        public async Task<decimal> TTotalPriceByDrinkCategory()
+        {
+          return  await _productDal.TotalPriceByDrinkCategory();
+        }
+
+        public async Task<decimal> TTotalPriceBySaladCategory()
+        {
+            return await _productDal.TotalPriceBySaladCategory();
+        }
+
+        public async Task TUpdate(Product entity)
         {
            await _productDal.Update(entity);
         }

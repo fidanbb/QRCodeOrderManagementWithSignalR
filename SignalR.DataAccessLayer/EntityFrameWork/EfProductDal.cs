@@ -93,5 +93,25 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
 			return await context.Products.Where(m => m.Price == (context.Products.Min(y => y.Price)))
 										 .Select(z => z.ProductName).FirstOrDefaultAsync() ?? "No Product Found";
 		}
-	}
+
+        public async Task<decimal> ProductPriceBySteakBurger()
+        {
+            using var context = new SignalRContext();
+            return await context.Products.Where(x => x.ProductName == "Steak Burger").Select(y => y.Price).FirstOrDefaultAsync();
+        }
+
+        public async Task<decimal> TotalPriceByDrinkCategory()
+        {
+            using var context = new SignalRContext();
+            int id = await context.Categories.Where(x => x.CategoryName == "Drink").Select(y => y.CategoryId).FirstOrDefaultAsync();
+            return await context.Products.Where(x => x.CategoryId == id).SumAsync(y => y.Price);
+        }
+
+        public async Task<decimal> TotalPriceBySaladCategory()
+        {
+            using var context = new SignalRContext();
+            int id =await context.Categories.Where(x => x.CategoryName == "Salad").Select(y => y.CategoryId).FirstOrDefaultAsync();
+            return await context.Products.Where(x => x.CategoryId == id).SumAsync(y => y.Price);
+        }
+    }
 }
