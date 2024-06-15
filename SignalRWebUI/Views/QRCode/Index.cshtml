@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Generate QR Code </h4>
+        <div class="row">
+            <div class="col-md-12">
+   <form method="post">
+        <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="value">QR Code Value</label>
+                                <input type="text" class="form-control" id="value" name="value" placeholder="Enter the value">
+                            </div>
+                        </div>
+    
+      <div class="card-action">
+          <button type="submit" class="btn btn-warning">Save</button>
+           <button type="reset" class="btn btn-danger">Cancel</button>
+       </div>
+
+ 
+</form>
+     @if (ViewBag.QrCodeImage is not null)
+        {
+            <h4 class="page-title" style="margin-left:30px;margin-bottom:0px">Generated QR Code</h4>
+            <div class="row">
+                <div class="col">
+                    <img alt="Embedded QR Code" style='width:250px; height:250px'
+                         src="@ViewBag.QRCodeImage"/>
+                </div>
+            </div>
+        }
+
+            </div>
+        </div>
+    </div>
+</div>
+

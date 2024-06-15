@@ -50,7 +50,7 @@ namespace SignalRAPi.Controllers
                     MenuTableID = 4,
                     ProductID = createBasketDto.ProductID,
                     Price = await _productService.TGetPriceByProductID(createBasketDto.ProductID),
-                    TotalPrice = 0
+                    TotalPrice = count * await _productService.TGetPriceByProductID(createBasketDto.ProductID)
                 });
             }
 
@@ -64,7 +64,7 @@ namespace SignalRAPi.Controllers
                     Count = 1,
                     MenuTableID = 4,
                     Price = await _productService.TGetPriceByProductID(createBasketDto.ProductID),
-                    TotalPrice = 0
+                    TotalPrice = await _productService.TGetPriceByProductID(createBasketDto.ProductID)
                 });
             }
 

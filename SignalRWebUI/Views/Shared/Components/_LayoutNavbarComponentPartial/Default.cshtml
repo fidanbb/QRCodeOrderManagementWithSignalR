@@ -2,6 +2,7 @@
 
 @{
 	AppUser user = _userManager.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);	
+	var userFullName="";
 }
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -113,17 +114,20 @@
 					</ul>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="~/Ready-Bootstrap-Dashboard-master/assets/img/profile2.jpg" alt="user-img" width="36" class="img-circle"><span>@user.Name @user.Surname</span></span> </a>
+					<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="~/Ready-Bootstrap-Dashboard-master/assets/img/profile2.jpg" alt="user-img" width="36" class="img-circle"><span>
+						@if(User.Identity.IsAuthenticated)
+						{ userFullName=user.Name + " " + user.Surname;} @userFullName
+					</span></span> </a>
 					<ul class="dropdown-menu dropdown-user">
 						<li>
 							<div class="user-box">
 								<div class="u-img"><img src="~/Ready-Bootstrap-Dashboard-master/assets/img/profile2.jpg" alt="user"></div>
 								<div class="u-text">
 
-									<h4>@user.Name @user.Surname</h4>
+									<h4>@if(User.Identity.IsAuthenticated){ userFullName=user.Name + " " + user.Surname;} @userFullName</h4>
 									
 								
-									<p class="text-muted">@user.Email</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Menu</a>
+									<p class="text-muted">@if(User.Identity.IsAuthenticated){@user.Email }</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Menu</a>
 								</div>
 							</div>
 						</li>
