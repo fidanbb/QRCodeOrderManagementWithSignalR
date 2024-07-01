@@ -22,7 +22,7 @@ User Authentication: ASP.NET Identity system for authentication and authorizatio
 
 Asynchronous Data Exchange: Utilizes AJAX for asynchronous data exchange.
 
-Profile Management: Users can update their profile information and view order history.
+Profile Management: Users can update their profile information.
 
 
 ### Technologies Used: 
